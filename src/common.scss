@@ -1,0 +1,440 @@
+/*============================
+    common variables starts   
+============================*/
+
+$color-fffff: #ffffff;
+$color-000000: #000000;
+$color-D46060: #d46060;
+/*============================
+    common variables starts   
+============================*/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/*============================
+    General css starts Here    
+============================*/
+html,
+body {
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: $color-fffff;
+  font-family: "Poppins" !important;
+  a {
+    color: $color-fffff;
+    transition: 0.2s;
+    text-decoration: underline;
+    &:hover {
+      color: $color-fffff;
+    }
+  }
+}
+::-webkit-scrollbar {
+  width: 4px;
+  background-color: #545353;
+}
+::-webkit-scrollbar-thumb {
+  background-color: $color-fffff;
+}
+.glassmorp {
+  position: relative;
+  padding: 5em 10em;
+  background: rgba(255, 255, 255, 0.057);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+.form_field_wrapper {
+  position: relative;
+  .inputdownarrow {
+    width: 100%;
+    max-width: 1.125em;
+    position: absolute;
+    top: 45%;
+    right: 2em;
+    pointer-events: none;
+  }
+}
+input {
+  -webkit-appearance: none;
+  outline: none;
+  display: block;
+  width: 100%;
+  font-size: 1.45em;
+  line-height: 1.8em;
+  letter-spacing: 0px;
+  padding: 0.5em 1em;
+  background-color: transparent !important;
+  border: 1px solid $color-fffff;
+  border-radius: 15px;
+  color: $color-fffff;
+  &::-webkit-input-placeholder {
+    /* Edge */
+    color: $color-fffff;
+  }
+  &:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $color-fffff;
+  }
+  &::placeholder {
+    color: $color-fffff;
+  }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+}
+.error_message {
+  position: absolute;
+  margin-top: 0.5em;
+  padding-left: 1.5em;
+  display: none;
+}
+.btn_wrapper {
+  width: 100%;
+  max-width: 15em;
+  margin: 0 auto;
+}
+.form_submit_btn {
+  display: block;
+  width: 100%;
+  font-size: 1.45em;
+  line-height: 1.8em;
+  letter-spacing: 0px;
+  padding: 0.5em 1em;
+  border: 1px solid $color-fffff;
+  border-radius: 1.792em;
+  color: $color-D46060;
+  margin-top: 2.5em;
+  background-color: transparent;
+  color: $color-fffff;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+  cursor: pointer;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: -1;
+    background-color: $color-fffff;
+    transition: 0.3s all;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: $color-fffff;
+    transition: 0.3s all;
+  }
+  &:hover::before,
+  &:hover::after {
+    height: 51%;
+    border: 1px solid $color-fffff;
+  }
+  &:hover {
+    color: $color-000000;
+    border: 1px solid $color-fffff;
+  }
+}
+.select_box_wrapper {
+  display: block;
+  width: 100%;
+  min-width: 30em;
+  .select_box_el {
+    &__control {
+      width: 100%;
+      max-width: 100%;
+      padding: 0.5em 1em;
+      background-color: transparent;
+      border-radius: 15px;
+      margin-right: 4em;
+      cursor: pointer;
+      border-color: $color-fffff;
+      outline: none;
+      box-shadow: none;
+      // box-shadow: 0 0 0 1px $color-fffff;
+      &:hover {
+        border-color: $color-fffff;
+      }
+    }
+    &__placeholder {
+      color: $color-fffff;
+      // margin-left: 2.3em;
+      font-size: 1.188em;
+    }
+    &__indicator-separator {
+      display: none;
+    }
+    &__indicator {
+      display: none;
+    }
+    &__single-value {
+      color: $color-fffff;
+      margin-right: 3em;
+      margin-left: 2.3em;
+      font-size: 1.188em;
+    }
+    &__input-container {
+      // margin-left: 2.3em;
+      color: $color-fffff;
+      font-size: 1.188em;
+    }
+    &__menu {
+      div {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .glassmorp {
+    margin: 0 3em;
+    padding: 5em 2em;
+  }
+}
+@media (max-width: 768px) {
+  .glassmorp {
+    margin: 0;
+    padding: 5em 2em;
+  }
+  input {
+    max-width: 90%;
+  }
+}
+@media (max-width: 600px) {
+  .form_field_wrapper {
+    margin-bottom: 3em;
+    .inputdownarrow {
+      top: 70%;
+    }
+  }
+  .error_message {
+    display: none;
+  }
+  input {
+    max-width: 100%;
+  }
+}
+/*============================
+    General css end Here    
+============================*/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/*============================
+    MIXINS start Here    
+============================*/
+@mixin textStyles($fontSize, $lineHeight, $letterSpacing) {
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
+}
+
+// common heading and desc style
+@mixin H90112 {
+  @include textStyles(5.625em, 1.5em, 0px);
+  @include poppinsSemiBold;
+  opacity: 1;
+}
+@mixin H75150 {
+  @include textStyles(4.688em, 1.5em, 0px);
+  @include poppinsSemiBold;
+  opacity: 1;
+}
+@mixin H501505 {
+  @include textStyles(3.125em, 1.5em, 0.5px);
+  @include poppinsSemiBold;
+  opacity: 1;
+}
+@mixin D21180 {
+  @include textStyles(1.45em, 1.8em, 0px);
+  @include poppinsSemiBold;
+  opacity: 0.9;
+}
+@mixin D18180 {
+  @include textStyles(1.4em, 1.8em, 0px);
+  @include poppinsRegular;
+  opacity: 0.9;
+}
+// Fonts mixin here
+@mixin poppinsRegular {
+  font-family: "Poppins";
+  font-weight: 400;
+}
+@mixin poppinsMedium {
+  font-family: "Poppins";
+  font-weight: 500;
+}
+@mixin poppinsSemiBold {
+  font-family: "Poppins";
+  font-weight: 600;
+}
+@mixin poppinsBold {
+  font-family: "Poppins";
+  font-weight: 700;
+}
+/*============================
+    MIXINS ends Here    
+============================*/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+
+/*============================
+    Container starts here   
+============================*/
+@media (min-width: 2560px) {
+  body {
+    font-size: 18px;
+  }
+  .my_container {
+    max-width: 2174.7px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+@media (min-width: 1921px) {
+  .my_container {
+    max-width: 1631px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0;
+  }
+}
+@media (max-width: 1920px) {
+  body {
+    font-size: 15px;
+  }
+  .my_container {
+    max-width: 1631px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 1919px) {
+  body {
+    font-size: 14px;
+  }
+  .my_container {
+    max-width: 1304.8px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+@media (max-width: 1536px) {
+  body {
+    font-size: 11px;
+  }
+}
+@media (max-width: 1440px) {
+  body {
+    font-size: 10.5px;
+  }
+  .my_container {
+    max-width: 1223.25px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 1366px) {
+  body {
+    font-size: 10px;
+    // font-size: 11px;
+  }
+  .my_container {
+    max-width: 1160.38px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 1280px) {
+  body {
+    font-size: 9.5px;
+  }
+  .my_container {
+    max-width: 1087.33px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 1194px) {
+  body {
+    font-size: 10px;
+  }
+  .my_container {
+    max-width: 1014.27px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 834px) {
+  body {
+    font-size: 10px;
+  }
+  .my_container {
+    max-width: 708.46px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+}
+/*============================
+    Container starts here   
+============================*/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/
+/**/

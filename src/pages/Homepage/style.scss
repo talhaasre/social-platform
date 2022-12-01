@@ -1,0 +1,106 @@
+@import "../../common.scss";
+
+.homesec1 {
+  padding: 5em 0;
+  &__heading {
+    @include H501505;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  &__fieldwrap {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__input_field {
+    padding: 0.5em 1em;
+    background: rgba($color-fffff, 0.5);
+  }
+}
+
+.homesec2 {
+  padding: 5em 0;
+  &__heading {
+    @include H501505;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  &__fieldwrap {
+    display: flex;
+    justify-content: space-evenly;
+    .form_field_wrapper_custom {
+      margin-top: 3em;
+    }
+  }
+  &__input_field {
+    padding: 0.5em 1em;
+    background: rgba($color-fffff, 0.5);
+  }
+  .labelhead {
+    position: absolute;
+    top: -2em;
+  }
+}
+
+.homesec3 {
+  padding: 5em 0;
+  &__heading {
+    @include H501505;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  &__flex-box {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__arrowswrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .arrow-right {
+      max-width: 3em;
+      margin-bottom: 1em;
+    }
+    .arrow-left {
+      max-width: 3em;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .homesec1 {
+    &__fieldwrap {
+      display: block;
+    }
+  }
+  .homesec2 {
+    &__fieldwrap {
+      display: block;
+    }
+    .labelhead {
+      position: relative;
+      top: 0;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+  }
+  .homesec3 {
+    &__flex-box {
+      display: block;
+    }
+    &__arrowswrap {
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 2em 0;
+      .arrow-right {
+        transform: rotate(90deg);
+        margin-right: 2em;
+      }
+      .arrow-left {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
