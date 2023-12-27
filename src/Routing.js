@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, Navigate, useLocation } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import NotFound from "./pages/NotFound/NotFound";
 import { notfoundURL } from "./utils/paths";

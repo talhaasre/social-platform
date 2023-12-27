@@ -51,12 +51,14 @@
   &__flex-box {
     display: flex;
     justify-content: space-between;
+    // flex-direction: column;
   }
   &__arrowswrap {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 0 2em;
     .arrow-right {
       max-width: 3em;
       margin-bottom: 1em;

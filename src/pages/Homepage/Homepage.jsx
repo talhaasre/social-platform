@@ -1,13 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Select from "react-select";
 import { images, inputdownarrow } from "../../images";
 import Card from "../../Components/Card/Card";
+import http from "../../utils/http";
+import config from "../../config/config";
+import axios from "axios";
 
 const Homepage = () => {
   const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
+  const [values, setValues] = useState({});
+
   const name = "Talha";
   const email = "talhaasre786@gmail.com";
+  let tokenConfig = config.api_token;
+  let base_url =
+    "https://luck-admin.luckyroofs.com/api/social-users?populate=*";
+
+  const fetchUsers = async () => {
+    const data = await http.get(base_url, tokenConfig);
+    console.log("data", data.data);
+    setUsers(data.data);
+  };
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
 
   return (
     <>
@@ -22,29 +41,15 @@ const Homepage = () => {
                     type="text"
                     placeholder="First Name"
                     name="firstname"
-                    // value={values.email}
-                    // onChange={handleChange}
                   />
                   <p className="error_message">Error message</p>
                 </div>
                 <div className="form_field_wrapper">
-                  <input
-                    type="text"
-                    placeholder="Last Name"
-                    name="lastname"
-                    // value={values.email}
-                    // onChange={handleChange}
-                  />
+                  <input type="text" placeholder="Last Name" name="lastname" />
                   <p className="error_message">Error message</p>
                 </div>
                 <div className="form_field_wrapper">
-                  <input
-                    type="text"
-                    placeholder="Email Id"
-                    name="email"
-                    // value={values.email}
-                    // onChange={handleChange}
-                  />
+                  <input type="text" placeholder="Email Id" name="email" />
                   <p className="error_message">Error message</p>
                 </div>
               </div>
@@ -100,32 +105,50 @@ const Homepage = () => {
           <div className="glassmorp">
             <h1 className="homesec3__heading">User and their followers</h1>
             <div className="homesec3__flex-box">
-              <Card
-                name={name}
-                email={email}
-                image="https://via.placeholder.com/150"
-                alt={images.error.alt}
-              />
-              <div className="homesec3__arrowswrap">
-                <img
-                  src={images.arrow.image}
-                  alt={images.arrow.alt}
-                  className="arrow-right"
-                  loading="lazy"
-                />
-                <img
-                  src={images.arrow.image}
-                  alt={images.arrow.alt}
-                  className="arrow-left"
-                  loading="lazy"
-                />
+              <div className="flexbox1">
+                {users.map((item, i) => (
+                  <>
+                    {console.log(item.attributes.firstName)}
+                    <Card
+                      key={i}
+                      name={item.attributes.firstName}
+                      email={item.attributes.email}
+                      image="https://via.placeholder.com/150"
+                      alt={images.error.alt}
+                    />
+                  </>
+                ))}
               </div>
-              <Card
-                name={name}
-                email={email}
-                image="https://via.placeholder.com/150"
-                alt={images.error.alt}
-              />
+              <div className="flexbox2">
+                <div className="homesec3__arrowswrap">
+                  <img
+                    src={images.arrow.image}
+                    alt={images.arrow.alt}
+                    className="arrow-right"
+                    loading="lazy"
+                  />
+                  <img
+                    src={images.arrow.image}
+                    alt={images.arrow.alt}
+                    className="arrow-left"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div className="flexbox3">
+                {users.map((item, i) => (
+                  <>
+                    {console.log(item.attributes.firstName)}
+                    <Card
+                      key={i}
+                      name={item.attributes.firstName}
+                      email={item.attributes.email}
+                      image="https://via.placeholder.com/150"
+                      alt={images.error.alt}
+                    />
+                  </>
+                ))}
+              </div>
             </div>
           </div>
         </div>
